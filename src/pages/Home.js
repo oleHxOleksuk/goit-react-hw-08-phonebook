@@ -1,26 +1,32 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import { motion, AnimatePresence } from 'framer-motion';
+
+import s from './home.module.css';
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Phonebook welcome page{' '}
-        <span role="img" aria-label="Telephone icon">
-          ☎️
-        </span>
-      </h1>
+    <div className={s.wrapper}>
+      <AnimatePresence>
+        <motion.h1
+          className={s.title}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition="transition"
+        >
+          Welcome 👋
+        </motion.h1>
+      </AnimatePresence>
+      <AnimatePresence>
+        <motion.p
+          className={s.text}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition="transition"
+        >
+          Now you will exactly not forget your contacts!
+        </motion.p>
+      </AnimatePresence>
     </div>
   );
 }
